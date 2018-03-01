@@ -3,6 +3,7 @@ package montenegro.erick.contrylist;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ public class FormActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i("lifecycle", "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
 
@@ -23,6 +25,21 @@ public class FormActivity extends AppCompatActivity {
         counter = (TextView) findViewById(R.id.counter);
 
         counter.setText(Integer.toString(cont));
+    }
+
+    @Override
+    protected void onStop() { //pruebitas para ver en qué fase estamos , onStart y onDestroy tbn
+        Log.i("lifecycle", "onStop");
+    }
+
+    @Override
+    protected void onStart() {
+        Log.i("lifecycle", "onStart");
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.i("lifecycle", "onDestroy");
     }
 
     public void onChooseCountry(View view) {
